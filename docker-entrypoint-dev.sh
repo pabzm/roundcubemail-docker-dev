@@ -8,11 +8,7 @@ if [[ -f /var/www/html/index.php ]]; then
 	# Download external Javascript dependencies.
 	bin/install-jsdeps.sh
 	# Translate elastic's styles to CSS.
-	cd skins/elastic
-	npx lessc --clean-css="--s1 --advanced" styles/styles.less > styles/styles.min.css
-	npx lessc --clean-css="--s1 --advanced" styles/print.less > styles/print.min.css
-	npx lessc --clean-css="--s1 --advanced" styles/embed.less > styles/embed.min.css
-	cd -
+	make css-elastic
 	# Update cache-buster parameters in CSS-URLs.
 	bin/updatecss.sh
 fi
