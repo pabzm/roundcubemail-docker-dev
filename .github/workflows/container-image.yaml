@@ -9,6 +9,7 @@ on:
   schedule:
     # Rebuild automatically each monday early morning
     - cron: "42 3 * * 1"
+  workflow_dispatch:
 
 jobs:
   build_and_push:
@@ -44,5 +45,3 @@ jobs:
           push: true
           #platforms: linux/amd64,linux/arm64
           tags: "ghcr.io/pabzm/roundcubemail-docker-dev:latest"
-
-
